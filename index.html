@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#183153" />
+    <meta name="description" content="Ghost Buster Travelers and Tours in Pakistan" />
+    <title>Ghost Buster Travelers & Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+      body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #183153; color: #222; }
+      .logo-img { display: block; margin: 2rem auto 1rem auto; max-width: 220px; border-radius: 18px; box-shadow: 0 4px 24px rgba(24,49,83,0.18); background: #fff; padding: 1rem; }
+      .navbar { background: #fff; color: #183153; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 16px rgba(24,49,83,0.10); border-radius: 12px; margin-bottom: 1.5rem; }
+      .navbar .logo { font-size: 1.7rem; font-weight: bold; letter-spacing: 2px; color: #ff9800; }
+      .navbar ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+      .navbar ul li a { color: #183153; text-decoration: none; font-weight: 500; transition: color 0.2s; font-size: 1.1rem; }
+      .navbar ul li a:hover { color: #00bfae; }
+      .section { max-width: 1100px; margin: 2rem auto; padding: 2.5rem 2rem; background: #fff; color: #183153; border-radius: 18px; box-shadow: 0 4px 24px rgba(24,49,83,0.10); margin-bottom: 2.5rem; }
+      .hero { text-align: center; padding: 5rem 0 4rem 0; color: #fff; border-radius: 0 0 32px 32px; background: linear-gradient(135deg, #00bfae 0%, #183153 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; box-shadow: 0 8px 32px rgba(24,49,83,0.18); }
+      .hero h1 { font-size: 3rem; color: #ffd600; text-shadow: 2px 2px 12px #18315399; }
+      .hero p { font-size: 1.3rem; margin: 2rem 0; color: #fff; text-shadow: 1px 1px 8px #18315399; }
+      .btn-main { background: linear-gradient(90deg, #ff9800 0%, #00bfae 100%); color: #fff; padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border: none; box-shadow: 0 2px 8px #00bfae33; transition: background 0.2s; }
+      .btn-main:hover { background: linear-gradient(90deg, #00bfae 0%, #ff9800 100%); color: #fff; }
+      .about-icons { display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; }
+      .about-icon { background: #ffd600; color: #183153; border-radius: 50%; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; box-shadow: 0 2px 8px #00bfae33; }
+      .about-features { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
+      .about-feature { background: #e0f7fa; color: #183153; border-radius: 12px; padding: 1.2rem 2rem; min-width: 220px; box-shadow: 0 2px 8px #00bfae33; font-size: 1.1rem; margin-bottom: 1rem; }
+      .cards { display: flex; flex-wrap: wrap; gap: 2rem; }
+      .card { flex: 1 1 300px; border: 1px solid #e0f7fa; border-radius: 14px; padding: 18px; background: #f5faff; color: #183153; box-shadow: 0 2px 8px #00bfae33; position: relative; overflow: hidden; }
+      .card img { width: 100%; border-radius: 10px; max-height: 200px; object-fit: cover; filter: brightness(0.96); }
+      .card .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,191,174,0.92); color: #fff; opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 10px; }
+      .card:hover .overlay { opacity: 1; }
+      .card .overlay h3 { margin: 0; font-size: 1.3rem; }
+      .card .overlay p { margin: 0.5rem 0 0 0; font-size: 1rem; }
+      .testimonials { background: #fffde7; color: #183153; border-radius: 18px; box-shadow: 0 2px 8px #ffd60033; padding: 2.5rem 2rem; margin-bottom: 2.5rem; }
+      .testimonial-list { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+      .testimonial { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #ffd60033; padding: 1.5rem; max-width: 320px; font-style: italic; position: relative; color: #ff9800; }
+      .testimonial:before { content: '\201C'; font-size: 2.5rem; color: #ffd600; position: absolute; left: 1rem; top: 0.5rem; }
+      .testimonial .author { margin-top: 1rem; font-weight: bold; color: #00bfae; }
+      input, textarea { background: #e0f7fa; color: #183153; border: 1px solid #00bfae; border-radius: 6px; }
+      label { color: #00bfae; }
+      @media (max-width: 700px) { .logo-img { max-width: 140px; } .navbar ul { flex-direction: column; gap: 1rem; } .section, .testimonials { padding: 1rem; } .cards, .testimonial-list { flex-direction: column; } }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!-- Logo at the top -->
+    <!-- <img src="logo.png" alt="Ghostbusters Tours Logo" class="logo-img" /> -->
+    <nav class="navbar">
+      <div class="logo">Ghost Buster Travelers</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="section hero" id="home">
+      <h1>Welcome to Ghost Buster Travelers & Tours</h1>
+      <p>Discover the beauty of Pakistan with our exclusive travel packages, expert guides, and unforgettable experiences.</p>
+      <a href="#packages" class="btn-main">View Packages</a>
+    </div>
+    <div class="section" id="about">
+      <h2>About Us</h2>
+      <div class="about-icons">
+        <div class="about-icon"><i class="fas fa-mountain"></i></div>
+        <div class="about-icon"><i class="fas fa-users"></i></div>
+        <div class="about-icon"><i class="fas fa-bus"></i></div>
+        <div class="about-icon"><i class="fas fa-star"></i></div>
+      </div>
+      <p style="font-size:1.2rem;">Ghost Buster Travelers & Tours is a leading travel agency in Pakistan, dedicated to providing exceptional travel experiences across the country. Our mission is to showcase the natural beauty, rich culture, and warm hospitality of Pakistan to travelers from around the world.</p>
+      <div class="about-features">
+        <div class="about-feature"><i class="fas fa-user-tie"></i> Experienced Local Guides</div>
+        <div class="about-feature"><i class="fas fa-cogs"></i> Customizable Tour Packages</div>
+        <div class="about-feature"><i class="fas fa-headset"></i> 24/7 Customer Support</div>
+        <div class="about-feature"><i class="fas fa-certificate"></i> Best Price Guarantee</div>
+        <div class="about-feature"><i class="fas fa-heart"></i> 100% Satisfaction</div>
+      </div>
+    </div>
+    <div class="section" id="packages">
+      <h2>Our Packages</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=600&q=80" alt="Hunza + China Border" />
+          <h3>Hunza + China Border</h3>
+          <p>Duration: 6 days</p>
+          <p>Explore the wonders of Hunza and journey to the Khunjerab Pass at the China border.</p>
+          <p style="font-weight: bold; color: #00bfae;">PKR 35,000</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Skardu" />
+          <h3>Skardu</h3>
+          <p>Duration: 6 days</p>
+          <p>Discover the magical beauty of Skardu, its lakes, and mountains.</p>
+          <p style="font-weight: bold; color: #00bfae;">PKR 35,000</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Fairy Meadows" />
+          <h3>Fairy Meadows</h3>
+          <p>Duration: 5 days</p>
+          <p>Guided group trek to Fairy Meadows, Nanga Parbat base camp.</p>
+          <p style="font-weight: bold; color: #00bfae;">PKR 30,000</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" alt="Naran Kaghan" />
+          <h3>Naran Kaghan</h3>
+          <p>Duration: 3 days</p>
+          <p>Enjoy the lush valleys, rivers, and lakes of Naran and Kaghan.</p>
+          <p style="font-weight: bold; color: #00bfae;">PKR 17,500</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=600&q=80" alt="Kashmir" />
+          <h3>Kashmir</h3>
+          <p>Duration: 4 days</p>
+          <p>Experience the breathtaking beauty of Kashmir's valleys and culture.</p>
+          <p style="font-weight: bold; color: #00bfae;">PKR 20,000</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" alt="Swat Kalam" />
+          <h3>Swat Kalam</h3>
+          <p>Duration: 3 days</p>
+          <p>Discover the green valleys and rivers of Swat and Kalam.</p>
+          <p style="font-weight: bold; color: #00bfae;">PKR 16,500</p>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="portfolio">
+      <h2>Our Portfolio</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Fairy Meadows" />
+          <div class="overlay"><h3>Fairy Meadows Trek</h3><p>Guided group trek to Fairy Meadows, Nanga Parbat base camp.</p></div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=600&q=80" alt="Karakoram Highway" />
+          <div class="overlay"><h3>Hunza China Border</h3><p>Journey to the breathtaking Khunjerab Pass at the Hunza-China border, the highest paved international border crossing in the world.</p></div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" alt="Swat Valley" />
+          <div class="overlay"><h3>Swat Valley Family Trip</h3><p>Family-friendly trip to Swat Valley with cultural activities.</p></div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?auto=format&fit=crop&w=600&q=80" alt="Deosai Plains" />
+          <div class="overlay"><h3>Deosai Plains Wildlife</h3><p>Wildlife photography and camping in the Deosai National Park.</p></div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" alt="Naran and Kaghan" />
+          <div class="overlay"><h3>Naran and Kaghan</h3><p>Explore the lush valleys, rivers, and lakes of Naran and Kaghan for a breathtaking adventure.</p></div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=600&q=80" alt="Ratti Gali Lake" />
+          <div class="overlay"><h3>Ratti Gali Lake Hike</h3><p>Adventure hike to the stunning Ratti Gali Lake in Neelum Valley.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials section" id="testimonials">
+      <h2>What Our Travelers Say</h2>
+      <div class="testimonial-list">
+        <div class="testimonial">"The Hunza Valley tour was a dream come true! The guides were amazing and everything was perfectly organized."<div class="author">- Ayesha K.</div></div>
+        <div class="testimonial">"Loved the Skardu trip! The team was so helpful and the scenery was breathtaking. Highly recommended!"<div class="author">- Bilal S.</div></div>
+        <div class="testimonial">"Best travel experience in Pakistan. Will book again!"<div class="author">- Maria T.</div></div>
+      </div>
+    </div>
+    <div class="section" id="contact">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/mbljlzvd" method="POST" style="max-width: 500px; margin: 2rem auto;">
+        <div style="margin-bottom: 1rem;">
+          <label>Name</label><br />
+          <input name="name" required style="width: 100%; padding: 0.5rem;" />
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label>Email</label><br />
+          <input name="email" type="email" required style="width: 100%; padding: 0.5rem;" />
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label>Message</label><br />
+          <textarea name="message" required style="width: 100%; padding: 0.5rem; min-height: 100px;"></textarea>
+        </div>
+        <button type="submit" style="background: linear-gradient(90deg, #1b5e20 0%, #181818 100%); color: #fff; padding: 0.7rem 2rem; border: none; border-radius: 8px; font-weight: bold;">Send</button>
+      </form>
+      <p style="text-align:center;">Email: ishtiaqtararchandio64@gmail.com<br>Phone: +923252521027</p>
+    </div>
+    <script>
+// Modal logic for package details
+function openPackageModal(packageId) {
+  document.getElementById('modal-overlay').style.display = 'flex';
+  // Show the right package details (for now, only Skardu example)
+  document.getElementById('modal-content-skardu').style.display = 'block';
+}
+function closePackageModal() {
+  document.getElementById('modal-overlay').style.display = 'none';
+  document.getElementById('modal-content-skardu').style.display = 'none';
+}
+</script>
+<style>
+#modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(24,49,83,0.85);
+  align-items: center; justify-content: center;
+}
+#modal-content-skardu {
+  display: none;
+  background: #fff;
+  color: #183153;
+  max-width: 700px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(24,49,83,0.18);
+  padding: 2rem 2.5rem;
+  position: relative;
+  animation: modalIn 0.3s;
+}
+@keyframes modalIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.close-modal-btn {
+  position: absolute; top: 1rem; right: 1rem;
+  background: #ff9800; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 8px #ff980033;
+}
+#modal-content-skardu h2 { color: #00bfae; margin-top: 0; }
+#modal-content-skardu ul { margin-left: 1.2rem; }
+#modal-content-skardu .note { color: #ff9800; font-weight: bold; margin: 1rem 0; }
+</style>
+<div id="modal-overlay" onclick="closePackageModal()">
+  <div id="modal-content-skardu" onclick="event.stopPropagation()">
+    <button class="close-modal-btn" onclick="closePackageModal()">&times;</button>
+    <h2>6 days Tour Skardu & Bashu Valley</h2>
+    <div class="note">Note: Rates will be changed according to the fuel prices even you have already booked your seats. Kindly try to cooperate with us.</div>
+    <h3>Trip Cost:</h3>
+    <ul>
+      <li>Package Cost: <b>30,000 PKR</b> from Lahore/Islamabad</li>
+      <li>Couple Separate room: <b>75,000 PKR</b></li>
+    </ul>
+    <h3>Places to Visit:</h3>
+    <ul>
+      <li>Hazara Expressway, River Indus, Hazara Tunnels, Besham, Jijal, Jijal Waterfall, Dassu, Sumar Nalla, Diamer Basha Dam Site, Chilas, Junction Point, Nanga Parbat View Point, Plate Junction, Old Silk Route, Gilgit, Skardu Road, Astagnala, Indus River, Skardu Valley, Shangrila Resort, Lower Kachura Lake, Upper Kachura Lake, Sadpara Lake, Mantoka Waterfall, Shigar Valley, Shigar Fort, Sarfranga Cold Desert, Skardu City, Basho Valley</li>
+    </ul>
+    <h3>Trip Plan:</h3>
+    <ul>
+      <li><b>Day 0:</b> 9:00pm Receive participants from Lahore</li>
+      <li><b>Day 1:</b> 2:00am Receive Rawalpindi participants, travel to Gilgit, stay night in Chilas/Gilgit</li>
+      <li><b>Day 2:</b> Travel to Skardu Valley, visit Shangrila Resort, Upper Kachura Lake, overnight in Skardu</li>
+      <li><b>Day 3:</b> Visit Manthokha Waterfall, Shigar Valley, Cold Desert, Shigar Fort, overnight in Skardu</li>
+      <li><b>Day 4:</b> Optional: Sadpara Lake, Basho Valley (Jeep charges not included), overnight in Skardu</li>
+      <li><b>Day 5:</b> Return towards Islamabad, overnight in Chilas</li>
+      <li><b>Day 6:</b> Return to Islamabad/Lahore</li>
+    </ul>
+    <h3>Services Included:</h3>
+    <ul>
+      <li>5 Breakfasts, 4 Dinners, 4 Night Hotel Stay (4/5 Person Sharing), Transportation, Bonfire (weather permitting)</li>
+    </ul>
+    <h3>Services Not Included:</h3>
+    <ul>
+      <li>Entry Tickets, Tea/Cold Drinks, Extra expenses due to nature/politics, Personal insurance, Jeep charges, AC/Heater, Anything not mentioned above</li>
+    </ul>
+    <h3>Menu:</h3>
+    <ul>
+      <li>Breakfast: Egg (Omelette), Paratha, Bread, Tea</li>
+      <li>Dinner: Chicken Karhai/BBQ, Chicken Handi/Biryani + Raita</li>
+    </ul>
+    <h3>Equipment List:</h3>
+    <ul>
+      <li>Face Mask, Hand Sanitizer, Gloves, Shoes, Cotton trouser/shirts, Jackets, Hat, Sunglasses, Umbrella, CNIC</li>
+    </ul>
+  </div>
+</div>
+<script>
+// Attach click event to Skardu card (2nd card)
+document.addEventListener('DOMContentLoaded', function() {
+  var skarduCard = document.querySelectorAll('.cards .card')[1];
+  if(skarduCard) {
+    skarduCard.style.cursor = 'pointer';
+    skarduCard.onclick = function() { openPackageModal('skardu'); };
+  }
+});
+</script>
+<div id="modal-overlay-kashmir" onclick="closePackageModalKashmir()" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(24,49,83,0.85); align-items:center; justify-content:center;">
+  <div id="modal-content-kashmir" onclick="event.stopPropagation()" style="display:block; background:#fff; color:#183153; max-width:700px; width:90vw; max-height:90vh; overflow-y:auto; border-radius:18px; box-shadow:0 8px 32px rgba(24,49,83,0.18); padding:2rem 2.5rem; position:relative; animation:modalIn 0.3s;">
+    <button class="close-modal-btn" onclick="closePackageModalKashmir()">&times;</button>
+    <h2>GHOSTBUSTERS TOURS presents<br>4 Day Tour To Kashmir Arangkel To Ratti Gali lake</h2>
+    <div style="font-weight:bold; color:#00bfae; margin-bottom:1rem;">Fᴀᴍɪʟɪᴇs | Fᴇᴍᴀʟᴇ | Bᴀᴄʜᴇʟᴏʀs | Gʀᴏᴜᴘs | Cᴏᴜᴘʟᴇs Aʟʟ ᴀʀᴇ Iɴᴠɪᴛᴇᴅ ᴛᴏ Jᴏɪɴ ᴜs.</div>
+    <h3>Attraction Places:</h3>
+    <ul>
+      <li>Neelum Valley</li>
+      <li>Dhani Waterfall</li>
+      <li>Kutton Waterfall</li>
+      <li>Upper Neelum</li>
+      <li>Keran (Pak Indo border)</li>
+      <li>Sharda</li>
+      <li>Sharda Bridge</li>
+      <li>Kel</li>
+      <li>Arang kel</li>
+      <li>Ratti Gali</li>
+    </ul>
+    <h3>Trip Cost:</h3>
+    <ul>
+      <li>Package Cost: <b>19,999 PKR</b> From Lahore/Islamabad</li>
+      <li>Couple Separate room: <b>49,499 PKR</b></li>
+    </ul>
+    <h3>For Booking:</h3>
+    <p>Call or Whatsapp: <b>03252521027</b></p>
+    <h3>Trip Plan:</h3>
+    <ul>
+      <li><b>Day 00:</b> Departure From Lahore At Your Location</li>
+      <li><b>Day 01:</b> Departure For Kashmir Tour! Route Plan According to Situation / Via motorway/ GT Road. Reach Islamabad At 5:00 am. Short Break For Breakfast (20/30 Mins). Way To Dhani Waterfall, Explore Dhani waterfall, Kutton waterfall & Upper Neelum. Reach Sharda & Explore Surrounding area. Rafting in Sharda River & spend Some Time. Dinner In Sharda. Night Stay at Sharda.</li>
+      <li><b>Day 02:</b> Breakfast at Sharda Hotel At 8:00am. Toward Arangkel! Transfer in Jeep For Arangkel. Visit Jeep Track Of Arangkel & surrounding areas. Explore Kel & Kel bazar. Toward Arangkel Visit Doli Ticket Point. Transfer In Doli Way To Arangkel. Hiking In Arangkel top maximum 1 Hour. Finally Reached Arangkel & explore Surrounding Places. Given Timing 3/4 Hours & Come Back To Jeep. After Visit Arangkel Back Hotel. Dinner At Keran. Night Stay at Keran. BBQ & Bonfire At Keran Hotel.</li>
+      <li><b>Day 03:</b> Breakfast at Keran Hotel at 8:00 am. Pack Your Bag For Ratti Gali Lake. Way To Ratti Gali Transfer in jeep. Jeep Track maximum 2 hours. Finally Reached at Ratti Gali lake. Explore Ratti Gali and Hiking Of Lake maximum 1.5 hours. Given Timing 5/6 hours For Ratti Gali lake. Explore The Lake & Move Back To Jeep. Come back To Keran! Night stay at Keran. Dinner At Keran hotel!</li>
+      <li><b>Day 04:</b> Breakfast at Keran Hotel. Pack Your Bag for Home. Any missing Point Of Kashmir We Visit. Short stay at Khola Bridge. Short Stay For Kashmir waterfall. Toward Islamabad reach Islamabad at 6:00 pm. Short Break At motorway / Via GT road on Mia g. Toward Drop Off client At Lahore reached timing 12am To 1am. End Of the Service.</li>
+    </ul>
+    <h3>Services Included:</h3>
+    <ul>
+      <li>Luxury Transport (Coster Saloon / Grand Cabin)</li>
+      <li>All Road Toll Taxes</li>
+      <li>Professional Guide</li>
+      <li>3 Dinner/3 Breakfasts</li>
+      <li>Bonfire / BBQ</li>
+      <li>Music System with Mic</li>
+      <li>Basic First Aid</li>
+    </ul>
+    <h3>Services Not Included:</h3>
+    <ul>
+      <li>Jeep Charges are Not Included</li>
+      <li>Laundry, Phone Calls & Other Personal Expenses</li>
+      <li>Extra expense due to land sliding, road blocks, bad weather and other political reasons</li>
+      <li>Personal insurance</li>
+      <li>Rescue, Helicopter coverage</li>
+      <li>Tips for Guide, porter & cook</li>
+      <li>Serious medical condition is on your own as company will provide the basic first aid only</li>
+      <li>Anything not mentioned in the “SERVICES INCLUDES” list</li>
+    </ul>
+    <div style="margin:1rem 0; color:#ff9800; font-weight:bold;">FIRST COME FIRST SERVE BASIS<br>60% ADVANCE PAYMENT FOR CONFIRMATION OF YOUR BOOKING<br>Remaining payment: At the time of departure<br>Note: Please Send Receipt of Payment Screenshot or Picture and Keep it For Record</div>
+    <h3>Cancellation Policy:</h3>
+    <ul>
+      <li>7 days before the departure, 50% deduction.</li>
+      <li>3 days before the departure, 75% deduction.</li>
+      <li>Less than 3 days before the departure, 100% deduction.</li>
+    </ul>
+  </div>
+</div>
+<script>
+function openPackageModalKashmir() {
+  document.getElementById('modal-overlay-kashmir').style.display = 'flex';
+}
+function closePackageModalKashmir() {
+  document.getElementById('modal-overlay-kashmir').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var kashmirCard = document.querySelectorAll('.cards .card')[4];
+  if(kashmirCard) {
+    kashmirCard.style.cursor = 'pointer';
+    kashmirCard.onclick = function() { openPackageModalKashmir(); };
+  }
+});
+</script>
+<style>
+#modal-overlay-kashmir .close-modal-btn {
+  position: absolute; top: 1rem; right: 1rem;
+  background: #ff9800; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 8px #ff980033;
+}
+#modal-content-kashmir h2 { color: #00bfae; margin-top: 0; }
+#modal-content-kashmir ul { margin-left: 1.2rem; }
+</style>
+<div id="modal-overlay-naran" onclick="closePackageModalNaran()" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(24,49,83,0.85); align-items:center; justify-content:center;">
+  <div id="modal-content-naran" onclick="event.stopPropagation()" style="display:block; background:#fff; color:#183153; max-width:700px; width:90vw; max-height:90vh; overflow-y:auto; border-radius:18px; box-shadow:0 8px 32px rgba(24,49,83,0.18); padding:2rem 2.5rem; position:relative; animation:modalIn 0.3s;">
+    <button class="close-modal-btn" onclick="closePackageModalNaran()">&times;</button>
+    <h2>3 Days to Naran Saif Ul Maluk Lake, Babusar Top</h2>
+    <div style="font-weight:bold; color:#ff9800; margin-bottom:1rem;">𝙉𝙤𝙩𝙚: 𝙍𝙖𝙩𝙚𝙨 𝙬𝙞𝙡𝙡 𝙗𝙚 𝙘𝙝𝙖𝙣𝙜𝙚𝙙 𝙖𝙘𝙘𝙤𝙧𝙙𝙞𝙣𝙜 𝙩𝙤 𝙩𝙝𝙚 𝙛𝙪𝙚𝙡 𝙥𝙧𝙞𝙘𝙚𝙨 𝙚𝙫𝙚𝙣 𝙮𝙤𝙪 𝙝𝙖𝙫𝙚 𝙖𝙡𝙧𝙚𝙖𝙙𝙮 𝙗𝙤𝙤𝙠𝙚𝙙 𝙮𝙤𝙪𝙧 𝙨𝙚𝙖𝙩𝙨. 𝙆𝙞𝙣𝙙𝙡𝙮 𝙩𝙧𝙮 𝙩𝙤 𝙘𝙤𝙤𝙥𝙚𝙧𝙖𝙩𝙚 𝙬𝙞𝙩𝙝 𝙪𝙨.</div>
+    <h3>Trip Cost:</h3>
+    <ul>
+      <li>Package Cost: <b>17,500 PKR</b> From Lahore/Islamabad/FSD</li>
+      <li>Couple Separate room: <b>45,000 PKR</b></li>
+    </ul>
+    <h3>Major Attractions:</h3>
+    <ul>
+      <li>Naran</li>
+      <li>Naran Bazar</li>
+      <li>Kaghan</li>
+      <li>Balakot</li>
+      <li>Kunhar River</li>
+      <li>Kiwai Waterfall</li>
+      <li>Lulusar Lake</li>
+      <li>Piyala Lake</li>
+      <li>Besal View Point</li>
+      <li>Saif-ul-Malook Lake</li>
+      <li>Shogran Siri paye</li>
+      <li>Babusar Top</li>
+    </ul>
+    <h3>Services Included:</h3>
+    <ul>
+      <li>Transport (Coaster or Highroof)</li>
+      <li>All Road Toll Taxes</li>
+      <li>2 Dinner</li>
+      <li>3 Breakfast</li>
+      <li>Accommodation</li>
+      <li>Official Photography</li>
+      <li>Professional Guide</li>
+      <li>Basic First Aid</li>
+    </ul>
+    <h3>Services Not Included:</h3>
+    <ul>
+      <li>Jeep are not Included in this pkg</li>
+      <li>Extra expense due to land sliding, road blocks, bad weather and other political reasons</li>
+      <li>Tea / Cold Drinks</li>
+      <li>Personal insurance</li>
+      <li>Rescue, Helicopter coverage</li>
+      <li>Tips for Guide, porter & cook</li>
+      <li>Anything not mentioned in the “SERVICES INCLUDED” list</li>
+    </ul>
+    <h3>Exceptions:</h3>
+    <ul>
+      <li>Kids age 5-7: 50% charges and given jumper seat</li>
+      <li>Kids age ≤ 4: Free and given jumper seat if available or Lap</li>
+    </ul>
+    <h3>Tour Schedule:</h3>
+    <ul>
+      <li><b>Day 00:</b> Departure From Lahore 10:00pm, Departure From Faisalabad 10:00pm Khnoor plaza</li>
+      <li><b>Day 01:</b> Departure For Naran Kaghan. Arrival at Islamabad Interchange around 4:00 am. Pick up Islamabad/Rawalpindi participants. Arrival at Balakot. Breakfast at Balakot. Departure from Balakot. Arrival at Shogran. Check in Hotel. Visit River Shogran & Siri paye. Visit Naran Bazar. BBQ Dinner. Bonfire. Night Stay in Naran.</li>
+      <li><b>Day 02:</b> Early Morning Wakeup call. Breakfast. Departure for Saif-Ul-Malook (Jeep Expense On Your Own). Arrival around Lake. Sight View. Departure for Lulusar Lake and Upper Kaghan Valley. Visit Lake Lulusar. Visit Babusar Top. Sight View and Photography. Arrival at Hotel 8:00 pm. Dinner at 9:00 pm. Night Stay in Naran.</li>
+      <li><b>Day 03:</b> Breakfast at Naran. Departure For Islamabad. Arrival at Kiwai Waterfall. Visit any Missing Point. Drop Islamabad Participants. Dinner on the way back to Lahore for Lahore Participants. Arrival at Lahore around 11:45 PM.</li>
+    </ul>
+    <div style="margin:1rem 0; color:#ff9800; font-weight:bold;">FIRST COME FIRST SERVE BASIS<br>60% ADVANCE PAYMENT FOR CONFIRMATION OF YOUR BOOKING<br>Remaining payment: At the time of departure<br>Note: Please Send Receipt of Payment Screenshot or Picture and Keep it For Record</div>
+    <h3>Cancellation Policy:</h3>
+    <ul>
+      <li>7 days before the departure, 50% deduction.</li>
+      <li>3 days before the departure, 75% deduction.</li>
+      <li>Less than 3 days before the departure, 100% deduction.</li>
+    </ul>
+  </div>
+</div>
+<script>
+function openPackageModalNaran() {
+  document.getElementById('modal-overlay-naran').style.display = 'flex';
+}
+function closePackageModalNaran() {
+  document.getElementById('modal-overlay-naran').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var naranCard = document.querySelectorAll('.cards .card')[3];
+  if(naranCard) {
+    naranCard.style.cursor = 'pointer';
+    naranCard.onclick = function() { openPackageModalNaran(); };
+  }
+});
+</script>
+<style>
+#modal-overlay-naran .close-modal-btn {
+  position: absolute; top: 1rem; right: 1rem;
+  background: #ff9800; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 8px #ff980033;
+}
+#modal-content-naran h2 { color: #00bfae; margin-top: 0; }
+#modal-content-naran ul { margin-left: 1.2rem; }
+</style>
+<div id="modal-overlay-hunza" onclick="closePackageModalHunza()" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(24,49,83,0.85); align-items:center; justify-content:center;">
+  <div id="modal-content-hunza" onclick="event.stopPropagation()" style="display:block; background:#fff; color:#183153; max-width:700px; width:90vw; max-height:90vh; overflow-y:auto; border-radius:18px; box-shadow:0 8px 32px rgba(24,49,83,0.18); padding:2rem 2.5rem; position:relative; animation:modalIn 0.3s;">
+    <button class="close-modal-btn" onclick="closePackageModalHunza()">&times;</button>
+    <h2>6 Days Hunza + China Border (Khunjerab Pass)</h2>
+    <div style="font-weight:bold; color:#ff9800; margin-bottom:1rem;">Note: Rates may change according to fuel prices. Please cooperate with us.</div>
+    <h3>Trip Cost:</h3>
+    <ul>
+      <li>Package Cost: <b>35,000 PKR</b> from Lahore/Islamabad</li>
+      <li>Couple Separate room: <b>80,000 PKR</b></li>
+    </ul>
+    <h3>Major Attractions:</h3>
+    <ul>
+      <li>Hunza Valley, Karimabad, Altit & Baltit Fort, Attabad Lake, Passu Cones, Sost, Khunjerab Pass (China Border), Rakaposhi View Point, Eagle's Nest, Hussaini Suspension Bridge, Gojal, Gulmit, and more.</li>
+    </ul>
+    <h3>Trip Plan:</h3>
+    <ul>
+      <li><b>Day 0:</b> Departure from Lahore at 9:00pm</li>
+      <li><b>Day 1:</b> Pickup Islamabad participants, travel via Hazara Expressway, Besham, Chilas. Night stay in Chilas.</li>
+      <li><b>Day 2:</b> Travel to Hunza, visit Rakaposhi View Point, Altit/Baltit Fort, Karimabad. Night stay in Hunza.</li>
+      <li><b>Day 3:</b> Visit Attabad Lake, Passu Cones, Hussaini Bridge, Sost. Night stay in Hunza/Gulmit.</li>
+      <li><b>Day 4:</b> Full day excursion to Khunjerab Pass (China Border). Return to Hunza. Night stay in Hunza.</li>
+      <li><b>Day 5:</b> Visit Eagle's Nest, local sightseeing, shopping. Return to Chilas. Night stay in Chilas.</li>
+      <li><b>Day 6:</b> Return to Islamabad/Lahore.</li>
+    </ul>
+    <h3>Services Included:</h3>
+    <ul>
+      <li>5 Breakfasts, 4 Dinners, Hotel Stay (4/5 Person Sharing), Transportation, Bonfire (weather permitting), Professional Guide</li>
+    </ul>
+    <h3>Services Not Included:</h3>
+    <ul>
+      <li>Entry Tickets, Tea/Cold Drinks, Jeep Charges, Personal expenses, Insurance, Anything not mentioned above</li>
+    </ul>
+    <div style="margin:1rem 0; color:#ff9800; font-weight:bold;">FIRST COME FIRST SERVE BASIS<br>60% ADVANCE PAYMENT FOR CONFIRMATION OF YOUR BOOKING<br>Remaining payment: At the time of departure<br>Note: Please Send Receipt of Payment Screenshot or Picture and Keep it For Record</div>
+    <h3>Cancellation Policy:</h3>
+    <ul>
+      <li>7 days before the departure, 50% deduction.</li>
+      <li>3 days before the departure, 75% deduction.</li>
+      <li>Less than 3 days before the departure, 100% deduction.</li>
+    </ul>
+  </div>
+</div>
+<div id="modal-overlay-fairy" onclick="closePackageModalFairy()" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(24,49,83,0.85); align-items:center; justify-content:center;">
+  <div id="modal-content-fairy" onclick="event.stopPropagation()" style="display:block; background:#fff; color:#183153; max-width:700px; width:90vw; max-height:90vh; overflow-y:auto; border-radius:18px; box-shadow:0 8px 32px rgba(24,49,83,0.18); padding:2rem 2.5rem; position:relative; animation:modalIn 0.3s;">
+    <button class="close-modal-btn" onclick="closePackageModalFairy()">&times;</button>
+    <h2>5 Days Fairy Meadows & Nanga Parbat Base Camp</h2>
+    <div style="font-weight:bold; color:#ff9800; margin-bottom:1rem;">Note: Rates may change according to fuel prices. Please cooperate with us.</div>
+    <h3>Trip Cost:</h3>
+    <ul>
+      <li>Package Cost: <b>30,000 PKR</b> from Lahore/Islamabad</li>
+      <li>Couple Separate room: <b>65,000 PKR</b></li>
+    </ul>
+    <h3>Major Attractions:</h3>
+    <ul>
+      <li>Fairy Meadows, Nanga Parbat Base Camp, Raikot Bridge, Tato Village, Jeep Ride, Bonfire, Camping, and more.</li>
+    </ul>
+    <h3>Trip Plan:</h3>
+    <ul>
+      <li><b>Day 0:</b> Departure from Lahore at 9:00pm</li>
+      <li><b>Day 1:</b> Pickup Islamabad participants, travel via Hazara Expressway, Besham, Chilas. Night stay in Chilas.</li>
+      <li><b>Day 2:</b> Jeep ride to Tato Village, trek to Fairy Meadows. Night stay in camps/huts at Fairy Meadows.</li>
+      <li><b>Day 3:</b> Trek to Nanga Parbat Base Camp, explore Fairy Meadows. Bonfire at night. Night stay at Fairy Meadows.</li>
+      <li><b>Day 4:</b> Trek back to Tato, jeep to Chilas. Night stay in Chilas.</li>
+      <li><b>Day 5:</b> Return to Islamabad/Lahore.</li>
+    </ul>
+    <h3>Services Included:</h3>
+    <ul>
+      <li>4 Breakfasts, 3 Dinners, Camping/Hut Stay, Transportation, Jeep Ride, Bonfire, Professional Guide</li>
+    </ul>
+    <h3>Services Not Included:</h3>
+    <ul>
+      <li>Entry Tickets, Tea/Cold Drinks, Personal expenses, Insurance, Anything not mentioned above</li>
+    </ul>
+    <div style="margin:1rem 0; color:#ff9800; font-weight:bold;">FIRST COME FIRST SERVE BASIS<br>60% ADVANCE PAYMENT FOR CONFIRMATION OF YOUR BOOKING<br>Remaining payment: At the time of departure<br>Note: Please Send Receipt of Payment Screenshot or Picture and Keep it For Record</div>
+    <h3>Cancellation Policy:</h3>
+    <ul>
+      <li>7 days before the departure, 50% deduction.</li>
+      <li>3 days before the departure, 75% deduction.</li>
+      <li>Less than 3 days before the departure, 100% deduction.</li>
+    </ul>
+  </div>
+</div>
+<div id="modal-overlay-swat" onclick="closePackageModalSwat()" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(24,49,83,0.85); align-items:center; justify-content:center;">
+  <div id="modal-content-swat" onclick="event.stopPropagation()" style="display:block; background:#fff; color:#183153; max-width:700px; width:90vw; max-height:90vh; overflow-y:auto; border-radius:18px; box-shadow:0 8px 32px rgba(24,49,83,0.18); padding:2rem 2.5rem; position:relative; animation:modalIn 0.3s;">
+    <button class="close-modal-btn" onclick="closePackageModalSwat()">&times;</button>
+    <h2>3 Days Swat & Kalam Valley</h2>
+    <div style="font-weight:bold; color:#ff9800; margin-bottom:1rem;">Note: Rates may change according to fuel prices. Please cooperate with us.</div>
+    <h3>Trip Cost:</h3>
+    <ul>
+      <li>Package Cost: <b>16,500 PKR</b> from Lahore/Islamabad</li>
+      <li>Couple Separate room: <b>40,000 PKR</b></li>
+    </ul>
+    <h3>Major Attractions:</h3>
+    <ul>
+      <li>Mingora, Fizagat, Malam Jabba, Bahrain, Kalam, Ushu Forest, Mahodand Lake, Swat River, and more.</li>
+    </ul>
+    <h3>Trip Plan:</h3>
+    <ul>
+      <li><b>Day 0:</b> Departure from Lahore at 10:00pm</li>
+      <li><b>Day 1:</b> Pickup Islamabad participants, travel via Swat Motorway, Mingora, Fizagat, Malam Jabba. Night stay in Kalam.</li>
+      <li><b>Day 2:</b> Visit Ushu Forest, Mahodand Lake (Jeep on your own), explore Kalam. Night stay in Kalam.</li>
+      <li><b>Day 3:</b> Return to Mingora, sightseeing, return to Islamabad/Lahore.</li>
+    </ul>
+    <h3>Services Included:</h3>
+    <ul>
+      <li>2 Breakfasts, 2 Dinners, Hotel Stay (4/5 Person Sharing), Transportation, Bonfire, Professional Guide</li>
+    </ul>
+    <h3>Services Not Included:</h3>
+    <ul>
+      <li>Entry Tickets, Jeep Charges, Tea/Cold Drinks, Personal expenses, Insurance, Anything not mentioned above</li>
+    </ul>
+    <div style="margin:1rem 0; color:#ff9800; font-weight:bold;">FIRST COME FIRST SERVE BASIS<br>60% ADVANCE PAYMENT FOR CONFIRMATION OF YOUR BOOKING<br>Remaining payment: At the time of departure<br>Note: Please Send Receipt of Payment Screenshot or Picture and Keep it For Record</div>
+    <h3>Cancellation Policy:</h3>
+    <ul>
+      <li>7 days before the departure, 50% deduction.</li>
+      <li>3 days before the departure, 75% deduction.</li>
+      <li>Less than 3 days before the departure, 100% deduction.</li>
+    </ul>
+  </div>
+</div>
+<script>
+function openPackageModalHunza() {
+  document.getElementById('modal-overlay-hunza').style.display = 'flex';
+}
+function closePackageModalHunza() {
+  document.getElementById('modal-overlay-hunza').style.display = 'none';
+}
+function openPackageModalFairy() {
+  document.getElementById('modal-overlay-fairy').style.display = 'flex';
+}
+function closePackageModalFairy() {
+  document.getElementById('modal-overlay-fairy').style.display = 'none';
+}
+function openPackageModalSwat() {
+  document.getElementById('modal-overlay-swat').style.display = 'flex';
+}
+function closePackageModalSwat() {
+  document.getElementById('modal-overlay-swat').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var hunzaCard = document.querySelectorAll('.cards .card')[0];
+  if(hunzaCard) {
+    hunzaCard.style.cursor = 'pointer';
+    hunzaCard.onclick = function() { openPackageModalHunza(); };
+  }
+  var fairyCard = document.querySelectorAll('.cards .card')[2];
+  if(fairyCard) {
+    fairyCard.style.cursor = 'pointer';
+    fairyCard.onclick = function() { openPackageModalFairy(); };
+  }
+  var swatCard = document.querySelectorAll('.cards .card')[5];
+  if(swatCard) {
+    swatCard.style.cursor = 'pointer';
+    swatCard.onclick = function() { openPackageModalSwat(); };
+  }
+});
+</script>
+<style>
+#modal-overlay-hunza .close-modal-btn,
+#modal-overlay-fairy .close-modal-btn,
+#modal-overlay-swat .close-modal-btn {
+  position: absolute; top: 1rem; right: 1rem;
+  background: #ff9800; color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 8px #ff980033;
+}
+#modal-content-hunza h2, #modal-content-fairy h2, #modal-content-swat h2 { color: #00bfae; margin-top: 0; }
+#modal-content-hunza ul, #modal-content-fairy ul, #modal-content-swat ul { margin-left: 1.2rem; }
+</style>
+  </body>
+</html> 

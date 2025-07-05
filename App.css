@@ -1,0 +1,12 @@
+.navbar {
+  flex-wrap: wrap;
+}
+@media (max-width: 700px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .container {
+    padding: 1rem;
+  }
+} 
